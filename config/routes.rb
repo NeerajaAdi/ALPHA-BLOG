@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#home'
-  get 'alpha_blog', to: 'pages#alpha_blog'
-  resources :articles, only: [:show]
+  get 'about', to: 'pages#about'
+  resources :articles
+  
 end
