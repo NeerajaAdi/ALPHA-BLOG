@@ -1,0 +1,12 @@
+<div id="page content">
+    <h1 class="text-center mt-4">Deleted article</h1>
+</div>
+<h1>Deleted  Article details </h1>
+<p><strong>Title: </strong><%= @article.title %></p>
+<p><strong>Description: </strong><%= @article.description %></p>
+
+
+
+<%= render 'form' %>
+
+<%= link_to "Return to articles", articles_path %> 

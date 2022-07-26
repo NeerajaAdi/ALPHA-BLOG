@@ -6,5 +6,6 @@ class ApplicationController < ActionController::Base
     def alpha_blog
        render html: 'Aplha-Blog page'
     end
+    
 end
 
