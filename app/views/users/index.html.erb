@@ -1,0 +1,25 @@
+<h1 class="text-center mt-4">Listing all Users</h1>
+            
+<div class="container">
+
+    <% @user.each do |user| %>
+        <div class="row" justify-content-md-center">
+            <div class="col-8 mt-4"></div>
+            <div class="card text-center shadow mb-5 bg-white rounded">
+            <h5 class="card-title"><%= link_to user.username, user_path(user), class: "text-success" %></h5>
+                <div class="card-body">
+                
+                <p class="card-text"><%= user.email %></p>
+        
+                
+                <%= link_to "Edit", edit_user_path(user), class: "btn btn-outline-info" %> 
+                <%= link_to "Delete", user_path(user), class: "btn btn-outline-danger", method: :DELETE, data: {confirm: "Are you sure?"} %>
+                <%= link_to "Back", articles_path(@article), class: "btn btn-outline-info" %>
+            </div>
+                <div class="card-footer text-muted">
+                    <small>Created <%= time_ago_in_words(user.created_at)%>ago, edited <%= time_ago_in_words(user.updated_at) %> ago </small>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
