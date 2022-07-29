@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_user, except: [:show, :index]
+  before_action :require_Same_user, only: [:edit, :update, :destroy]
   def show
 
   end
@@ -55,4 +56,11 @@ class ArticlesController < ApplicationController
   def articles_params
     params.require(:article).permit(:title, :description)
   end 
+
+  def require_Same_user
+    if current_user != @article.user && !current_user.admin?
+      flash[:alert] = "You are not authorized to view this page"
+      redirect_to @article
+    end
+  end
 end
