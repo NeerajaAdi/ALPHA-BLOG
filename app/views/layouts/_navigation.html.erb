@@ -7,21 +7,37 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
+              
+            
+            <%=link_to "Bloggers", users_path, class: "nav-link" %>  </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="logo" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Articles
               </a>
-              <ul class="dropdown-menu">
-                <%= link_to "Create new article", new_article_path, class: "dropdown-item" %>
-                <%= link_to "View article", articles_path, class: "dropdown-item" %>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <% if logged_in? %>  
+              <%= link_to "Create new article", new_article_path, class: "dropdown-item" %>
+            <% end %>
+              <%= link_to "View article", articles_path, class: "dropdown-item" %>
+               <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>
             </li>
+            <% if logged_in? %>
             <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
+              <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
             </li>
+            <li class="nav-item">
+              <%= link_to 'Logout', logout_path, class: "nav-link" %>
+            </li>
+            <% else %>
+            
+            <li class="nav-item">
+              <%= link_to 'Login', login_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign-up', Signup_path, class: "nav-link" %>
+            </li>
+            <% end %>
           </ul>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
