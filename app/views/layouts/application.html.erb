@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ALPHABlogPage</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AlphaBlog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
-    
-  </head>
- 
+     </head>
+
   <body class="d-flex flex-column">
-   <div id="page-content">
+   
+    <div id="page-content">
       <%= render 'layouts/messages' %>
       <%= yield %>
-      <%= render 'layouts/footer' %>
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

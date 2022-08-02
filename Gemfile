@@ -54,7 +54,7 @@ gem "bootsnap", require: false
 gem "sassc-rails"
 
 gem 'sass-rails', '~> 6.0'
-
+gem 'npm-rails', '~> 0.2.1'
 gem 'listen', '~> 3.7', '>= 3.7.1'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
@@ -92,4 +92,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
